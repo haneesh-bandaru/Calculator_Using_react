@@ -1,84 +1,96 @@
-body{
-  margin: 0%;
-  background: linear-gradient(45deg, #0a0a0a, #3a4452);
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #000000; /* Black background */
   height: 100vh;
+  display: flex; /* For centering the calculator */
+  justify-content: center; /* For centering the calculator */
+  align-items: center; /* For centering the calculator */
 }
 
-.box1
-{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-button{
+button {
   border: none;
-  border-radius: 150px;
-  height: 70px;
-  font-size: larger;
-  width: 70px;
-  color: #ffffff;
-  font-size: 20px;
-  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 50%; /* Circular buttons */
+  height: 78px; /* iOS like size - slightly adjusted */
+  width: 78px;  /* iOS like size - slightly adjusted */
+  font-size: 1.75em; /* Adjusted font size */
+  color: #FFFFFF; /* White text */
   cursor: pointer;
-  background: transparent;
+  background: #333333; /* Default dark gray for number buttons */
+  display: flex; /* For centering content within button */
+  justify-content: center; /* For centering content within button */
+  align-items: center; /* For centering content within button */
+  -webkit-tap-highlight-color: rgba(0,0,0,0.2); /* Tap feedback */
 }
 
-.container1{
-  min-width: 50%;
-  color: rgb(255, 255, 255);
+button:active {
+  filter: brightness(1.2); /* Slightly lighten on active/tap for feedback */
+}
+
+.container2 { /* Calculator body */
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  width: 374px; /* (4 * 78px buttons) + (3 * 8px spacing) + (2 * 20px padding) = 312 + 24 + 40 = 376px. Adjusted for best fit. */
+  border-radius: 30px; /* iOS has rounded corners for the calculator body */
+  background: #000000; /* Black background */
+  padding: 20px; /* Padding around buttons and display */
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.3); /* Subtle shadow for depth */
 }
 
-.container2{
-
- margin-left: auto;
- margin-right: auto;
- border: 1px solid #717377;
- box-shadow: -8px -8px 15px rgba(113, 115, 119, 0.5);
- width: 350px;
- border-radius: 16px;
- height:420px;
-}
-
-.display
-{ 
-  box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);
-  background: transparent;
-  font-size: 40px;
-  cursor: pointer;
-  /* border-radius: 10%; */
-  height: 100px;  
+.display {
+  background: transparent; /* Transparent background */
+  font-size: 4.2rem;    /* Large font size for display */
+  font-weight: 300; /* Lighter font for display, iOS like */
+  height: 120px;       /* Adjusted height */
   border: none;
-  color: aliceblue;
-
+  color: #FFFFFF;      /* White text */
+  text-align: right; /* Right-aligned text */
+  padding-right: 20px; /* Padding on the right */
+  padding-left: 20px; /* Padding on the left */
+  padding-bottom: 10px; /* Padding at the bottom */
+  box-sizing: border-box; /* Include padding in width calculation */
+  width: 100%; /* Make display take full width of container */
+  margin-bottom: 15px; /* Space below display, adjusted */
+  /* Removed cursor: pointer; as it's not typical for a display */
 }
 
-h1{
-  color: aliceblue;
+table {
   margin-left: auto;
   margin-right: auto;
-}
-  
-
-table{
-  /* background-color: rgba(255, 255, 255); */
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  border-spacing: 8px; /* Adjusted Spacing between buttons */
+  width: 100%; /* Table takes full width of container2 */
 }
 
-td{
-  border-radius: 15px;
+td {
+  text-align: center; /* Center buttons in table cells */
 }
 
-.operator{
-  color: #6dee0a;
+.operator {
+  background-color: #FF9500; /* Orange background for operators */
+  color: #FFFFFF; /* White text for operators */
+  font-size: 2.2em; /* Operators are often larger/bolder */
 }
 
-.special{
-  background-color:#fb7c14;
+.operator:active {
+  background-color: #FFB753; /* Lighter orange for active state */
+}
+
+.special { /* For 'C', '+/-', '%' */
+  background-color: #D4D4D2; /* Light gray background (iOS like) */
+  color: #000000; /* Black text */
+  font-size: 1.5em; /* Special buttons text can be smaller */
+}
+
+.special:active {
+  background-color: #EAEAEA; /* Lighter gray for active state */
+}
+
+/* Style for the wide '0' button */
+/* It inherits background and color from the default 'button' style. */
+.button-zero {
+  width: calc( (78px * 2) + 8px ); /* (2 * button width + spacing) */
+  border-radius: 39px; /* Pill-shape (height/2) */
+  justify-content: flex-start;
+  padding-left: 30px; /* Indent text appropriately for '0' */
+  font-size: 1.75em; /* Match other number buttons */
 }
